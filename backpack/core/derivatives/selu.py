@@ -15,7 +15,7 @@ class SELUDerivatives(ElementwiseDerivatives):
         return False
 
     def df(self, module, g_inp, g_out, subsampling=None):
-        """First SELU derivative: `SELU'(x) = scale if x < 0 else scale*alpha*e^x`. """
+        """First SELU derivative: `SELU'(x) = scale if x < 0 else scale*alpha*e^x`."""
         input = subsample_input(module, subsampling=subsampling)
 
         df_SELU = gt(input, 0).float()
@@ -26,7 +26,7 @@ class SELUDerivatives(ElementwiseDerivatives):
         return df_SELU
 
     def d2f(self, module, g_inp, g_out):
-        """Second SELU derivative: `SELU''(x) = 0 if x < 0 else scale*alpha*e^x`. """
+        """Second SELU derivative: `SELU''(x) = 0 if x < 0 else scale*alpha*e^x`."""
 
         d2f_SELU = gt(module.input0, 0).float()
         d2f_SELU[d2f_SELU == 1] = 0

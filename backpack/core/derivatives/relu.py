@@ -10,7 +10,7 @@ class ReLUDerivatives(ElementwiseDerivatives):
         return True
 
     def df(self, module, g_inp, g_out, subsampling=None):
-        """First ReLU derivative: `ReLU'(x) = 0 if x < 0 else 1`. """
+        """First ReLU derivative: `ReLU'(x) = 0 if x < 0 else 1`."""
         input = subsample_input(module, subsampling=subsampling)
 
         return gt(input, 0).float()

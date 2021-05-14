@@ -10,7 +10,7 @@ class ELUDerivatives(ElementwiseDerivatives):
         return False
 
     def df(self, module, g_inp, g_out, subsampling=None):
-        """First ELU derivative: `ELU'(x) = alpha * e^x if x < 0 else 1`. """
+        """First ELU derivative: `ELU'(x) = alpha * e^x if x < 0 else 1`."""
         input = subsample_input(module, subsampling=subsampling)
 
         df_ELU = gt(input, 0).float()
@@ -20,5 +20,5 @@ class ELUDerivatives(ElementwiseDerivatives):
         return df_ELU
 
     def d2f(self, module, g_inp, g_out):
-        """Second ELU derivative: `ELU''(x) = alpha * e^x if x < 0 else 1`. """
+        """Second ELU derivative: `ELU''(x) = alpha * e^x if x < 0 else 1`."""
         return self.df(module, g_inp, g_out)

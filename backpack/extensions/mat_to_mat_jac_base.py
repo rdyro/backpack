@@ -2,7 +2,7 @@ from .module_extension import ModuleExtension
 
 
 class MatToJacMat(ModuleExtension):
-    """ Backpropagate by multiplying with the transpose output-input Jacobian."""
+    """Backpropagate by multiplying with the transpose output-input Jacobian."""
 
     def __init__(self, derivatives, params=None):
         super().__init__(params)

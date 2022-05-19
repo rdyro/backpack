@@ -1,6 +1,7 @@
 from backpack.core.derivatives.relu import ReLUDerivatives
 from backpack.core.derivatives.sigmoid import SigmoidDerivatives
 from backpack.core.derivatives.tanh import TanhDerivatives
+from backpack.core.derivatives.softplus import SoftplusDerivatives
 from backpack.extensions.secondorder.hbp.hbpbase import HBPBaseModule
 
 
@@ -17,3 +18,7 @@ class HBPSigmoid(HBPBaseModule):
 class HBPTanh(HBPBaseModule):
     def __init__(self):
         super().__init__(derivatives=TanhDerivatives())
+
+class HBPSoftplus(HBPBaseModule):
+    def __init__(self):
+        super().__init__(derivatives=SoftplusDerivatives())

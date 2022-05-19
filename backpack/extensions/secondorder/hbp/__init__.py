@@ -13,6 +13,7 @@ from torch.nn import (
     Sigmoid,
     Tanh,
     ZeroPad2d,
+    Softplus,
 )
 
 from backpack.custom_module.branching import SumModule
@@ -68,6 +69,7 @@ class HBP(SecondOrderBackpropExtension):
                 ReLU: activations.HBPReLU(),
                 Sigmoid: activations.HBPSigmoid(),
                 Tanh: activations.HBPTanh(),
+                Softplus: activations.HBPSoftplus(),
                 SumModule: custom_module.HBPSumModule(),
                 ScaleModule: custom_module.HBPScaleModule(),
                 Identity: custom_module.HBPScaleModule(),
